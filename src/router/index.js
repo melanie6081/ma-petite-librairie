@@ -1,30 +1,31 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-import CategorieView from '../views/CategorieView.vue'
+import { createRouter, createWebHistory } from "vue-router";
+import LibrairieView from "../views/LibrairieView.vue";
+import ModifierView from "../views/ModifierView.vue";
+import RechercheView from "../views/RechercheView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
-    // Associe des chemins d'accès au composant vue à afficher
+  // Associe des chemins d'accès au composant vue à afficher
   routes: [
     {
-      path: '/',
-      name: 'home',
-      component: HomeView
+      path: "/",
+      name: "librairie",
+      component: LibrairieView,
     },
     {
-      path: '/categories',
-      name: 'categories',
-      component: CategorieView
+      path: "/modification",
+      name: "modification",
+      component: ModifierView,
     },
     {
-      path: '/about',
-      name: 'about',
+      path: "/recherche",
+      name: "recherche",
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import('../views/AboutView.vue')
-    }
-  ]
-})
+      component: RechercheView,
+    },
+  ],
+});
 
-export default router
+export default router;
