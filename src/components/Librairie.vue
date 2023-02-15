@@ -14,7 +14,7 @@ import Livre from "../Livre";
 // --> donnée réactive = l'affichage sera actualisée
 //      automatiquement à chaque changement dans la liste
 //const listeC = reactive([new Chose("menage"), new Chose("Vaiselle")]);
-const listeC = reactive([]);
+const listeL = reactive([]);
 //url API
 const url = "https://webmmi.iut-tlse3.fr/~pecatte/librairies/public/18/livres";
 
@@ -27,9 +27,9 @@ function getLivres() {
     })
     .then((dataJSON) => {
       console.log(dataJSON);
-      listeC.splice(0, listeC.length);
+      listeL.splice(0, listeL.length);
       dataJSON.forEach((l) =>
-        listeC.push(new Livre(l.titre, l.qtestock, l.prix))
+        listeL.push(new Livre(l.titre, l.qtestock, l.prix))
       );
     })
     .catch((error) => console.log(error));

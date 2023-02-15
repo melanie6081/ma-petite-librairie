@@ -17,6 +17,6 @@ export default class Livre {
   }
 
   pourAfficher() {
-    return `--> ${this._titre} (${this._qtestock} en stock | ${this._prix}€)`;
+    return `${this._titre} (${this._qtestock} en stock | ${this._prix}€)`;
   }
 }

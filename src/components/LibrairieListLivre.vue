@@ -14,4 +14,8 @@ defineProps(["livre"]);
   </li>
 </template>
 
-<style></style>
+<style>
+li {
+  color: #40639d;
+}
+</style>

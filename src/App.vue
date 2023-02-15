@@ -4,13 +4,18 @@ import { RouterLink, RouterView } from "vue-router";
 
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logoLibrairie.png" />
+    <img
+      alt="Vue logo"
+      class="logo"
+      src="@/assets/logo_MaPetiteLibrairie.png"
+    />
 
     <div class="wrapper">
       <nav>
         <!-- RouterLink : des liens qui pointent vers le composant à afficher -->
         <!-- Voir la configuration des liens dans router/index.js -->
         <RouterLink to="/">Librairie</RouterLink>
+        <RouterLink to="/newlivre">Nouveau Livre</RouterLink>
         <RouterLink to="/modification">Modification</RouterLink>
         <RouterLink to="/recherche">Recherche</RouterLink>
       </nav>
@@ -39,17 +44,23 @@ nav {
 }
 
 nav a.router-link-exact-active {
-  color: var(--color-text);
+  color: #f1cdc2;
 }
 
 nav a.router-link-exact-active:hover {
-  background-color: lightgray;
+  background-color: darkred;
+  opacity: 0.3;
+}
+nav a:hover {
+  background-color: darkcyan;
+  opacity: 0.3;
 }
 
 nav a {
   display: inline-block;
   padding: 0 1rem;
   border-left: 1px solid var(--color-border);
+  color: #8dbdcb;
 }
 
 nav a:first-of-type {
