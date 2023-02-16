@@ -12,6 +12,8 @@ import { RouterLink, RouterView } from "vue-router";
       height="200"
     />
 
+    <h1>Ma petite Librairie</h1>
+
     <div class="wrapper">
       <nav>
         <!-- RouterLink : des liens qui pointent vers le composant à afficher -->
@@ -45,21 +47,34 @@ nav {
 }
 
 nav a.router-link-exact-active {
-  color: var(--color-text);
+  color: #f1cdc2;
 }
 
 nav a.router-link-exact-active:hover {
-  background-color: lightgray;
+  background-color: darkred;
+  opacity: 0.3;
+}
+
+nav a:hover {
+  background-color: darkcyan;
+  opacity: 0.3;
 }
 
 nav a {
   display: inline-block;
   padding: 0 1rem;
   border-left: 1px solid var(--color-border);
+  color: #8dbdcb;
 }
 
 nav a:first-of-type {
   border: 0;
+}
+
+h1 {
+  color: #40639d;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-style: italic;
 }
 
 @media (min-width: 1024px) {
