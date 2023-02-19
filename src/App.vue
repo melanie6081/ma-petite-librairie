@@ -8,8 +8,8 @@ import { RouterLink, RouterView } from "vue-router";
       alt="Vue logo"
       class="logo"
       src="@/assets/logo_MaPetiteLibrairie.png"
-      width="200"
-      height="200"
+      width="100"
+      height="100"
     />
 
     <h1>Ma petite Librairie</h1>
@@ -36,7 +36,7 @@ header {
 
 .logo {
   display: block;
-  margin: 0 auto 2rem;
+  margin: 0 0 auto auto;
 }
 
 nav {
@@ -75,6 +75,7 @@ h1 {
   color: #40639d;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   font-style: italic;
+  margin-top: 5px;
 }
 
 @media (min-width: 1024px) {
