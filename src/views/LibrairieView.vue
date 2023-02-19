@@ -4,6 +4,9 @@ import Librairie from "../components/Librairie.vue";
 
 <template>
   <main>
+    <div id="collection">
+      <h2>Mes Livres</h2>
+    </div>
     <div id="librairie">
       <Librairie />
     </div>
@@ -11,7 +14,13 @@ import Librairie from "../components/Librairie.vue";
 </template>
 
 <style scoped>
-#librairie {
-  margin: 160px 0px 0px;
+h2 {
+  color: #40639d;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-style: italic;
+}
+
+main {
+  margin: 10px 0px 0px;
 }
 </style>
