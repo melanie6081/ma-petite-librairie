@@ -2,9 +2,9 @@
 const url = "https://webmmi.iut-tlse3.fr/~pecatte/librairies/public/18/livres";
 
 function handlerAdd(titreL, qtestockL, prixL) {
-  console.log(titre);
-  console.log(qtestock);
-  console.log(prix);
+  console.log(titreL);
+  console.log(qtestockL);
+  console.log(prixL);
   let myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
   const fetchOptions = {
