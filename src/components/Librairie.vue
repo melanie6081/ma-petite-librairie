@@ -54,10 +54,10 @@ function handlerDelete(livre) {
     .catch((error) => console.log(error));
 }
 
-function handler1Add(l) {
-  console.log(l);
+function handler1Add(livre) {
   // -- ajouter un livre en quantité
-  l.add1();
+  livre.add1();
+  console.log(livre);
   // -- entête http pour la req AJAX
   let myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
@@ -66,7 +66,12 @@ function handler1Add(l) {
   const fetchOptions = {
     method: "PUT",
     headers: myHeaders,
-    body: JSON.stringify(l),
+    body: JSON.stringify({
+      id: livre._id,
+      titre: livre._titre,
+      qtestock: livre._qtestock,
+      prix: livre._prix,
+    }),
   };
   // -- la req AJAX
   fetch(url, fetchOptions)
@@ -81,11 +86,11 @@ function handler1Add(l) {
     .catch((error) => console.log(error));
 }
 
-function handler1Delete(l) {
-  console.log(l);
-  if (l.qtestock > 1) {
+function handler1Delete(livre) {
+  if (livre._qtestock > 1) {
     // -- soustraire 1 de la quantité en stock
-    l.delete1();
+    livre.delete1();
+    console.log(livre);
     // -- entête http pour la req AJAX
     let myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
@@ -94,7 +99,12 @@ function handler1Delete(l) {
     const fetchOptions = {
       method: "PUT",
       headers: myHeaders,
-      body: JSON.stringify(l),
+      body: JSON.stringify({
+        id: livre._id,
+        titre: livre._titre,
+        qtestock: livre._qtestock,
+        prix: livre._prix,
+      }),
     };
     // -- la req AJAX
     fetch(url, fetchOptions)
@@ -108,7 +118,7 @@ function handler1Delete(l) {
       })
       .catch((error) => console.log(error));
   } else {
-    handlerDelete(l.id);
+    handlerDelete(livre);
     getLivres();
   }
 }
