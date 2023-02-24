@@ -103,15 +103,14 @@ function handler1Delete(l) {
       .then((dataJSON) => {
         console.log(dataJSON);
         // actualiser la liste des choses
-        getLivre();
+        getLivres();
       })
       .catch((error) => console.log(error));
   } else {
     handlerDelete(l.id);
-    getLivre();
+    getLivres();
   }
 }
-
 
 onMounted(() => {
   getLivres();
