@@ -19,7 +19,7 @@ import { RouterLink, RouterView } from "vue-router";
         <!-- RouterLink : des liens qui pointent vers le composant à afficher -->
         <!-- Voir la configuration des liens dans router/index.js -->
         <RouterLink to="/">Librairie</RouterLink>
-        <RouterLink to="/modification">Modification</RouterLink>
+        <RouterLink to="/modification">Nouveau Livre</RouterLink>
         <RouterLink to="/recherche">Recherche</RouterLink>
       </nav>
     </div>

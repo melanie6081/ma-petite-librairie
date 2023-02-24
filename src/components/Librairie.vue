@@ -34,6 +34,85 @@ function getLivres() {
     })
     .catch((error) => console.log(error));
 }
+
+function handlerDelete(id) {
+  console.log("supprimons le livre d'id : ", id);
+  const fetchOptions = {
+    method: "DELETE",
+  };
+
+  fetch(url + "/" + id, fetchOptions)
+    .then((response) => {
+      return response.json();
+    })
+    .then((dataJSON) => {
+      console.log(dataJSON);
+      console.log("livre supprimé ?");
+      getLivres();
+    })
+    .catch((error) => console.log(error));
+}
+
+function handler1Add(l) {
+  console.log(l);
+  // -- ajouter un livre en quantité
+  l.add1();
+  // -- entête http pour la req AJAX
+  let myHeaders = new Headers();
+  myHeaders.append("Content-Type", "application/json");
+  // -- la chose modifiée est envoyé au serveur
+  //  via le body de la req AJAX
+  const fetchOptions = {
+    method: "PUT",
+    headers: myHeaders,
+    body: JSON.stringify(l),
+  };
+  // -- la req AJAX
+  fetch(url, fetchOptions)
+    .then((response) => {
+      return response.json();
+    })
+    .then((dataJSON) => {
+      console.log(dataJSON);
+      // actualiser la liste des choses
+      getLivres();
+    })
+    .catch((error) => console.log(error));
+}
+
+function handler1Delete(l) {
+  console.log(l);
+  if (l.qtestock > 1) {
+    // -- soustraire 1 de la quantité en stock
+    l.delete1();
+    // -- entête http pour la req AJAX
+    let myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+    // -- la chose modifiée est envoyé au serveur
+    //  via le body de la req AJAX
+    const fetchOptions = {
+      method: "PUT",
+      headers: myHeaders,
+      body: JSON.stringify(l),
+    };
+    // -- la req AJAX
+    fetch(url, fetchOptions)
+      .then((response) => {
+        return response.json();
+      })
+      .then((dataJSON) => {
+        console.log(dataJSON);
+        // actualiser la liste des choses
+        getLivre();
+      })
+      .catch((error) => console.log(error));
+  } else {
+    handlerDelete(l.id);
+    getLivre();
+  }
+}
+
+
 onMounted(() => {
   getLivres();
 });
@@ -41,9 +120,13 @@ onMounted(() => {
 
 <template>
   <LibrairieListLivre
-    v-for="(livre, index) of listeC"
-    :key="index"
+    v-for="livre of listeC"
+    :key="livre.id"
     :livre="livre"
+    :indexl="livre.id"
+    @delete="handlerDelete"
+    @delete1="handler1Delete"
+    @add1="handler1Add"
   />
 </template>
 
