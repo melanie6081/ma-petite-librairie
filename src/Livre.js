@@ -17,6 +17,14 @@ export default class Livre {
   }
 
   pourAfficher() {
-    return `--> ${this._titre} (${this._qtestock} en stock | ${this._prix}€)`;
+    return `${this._titre} \n (${this._qtestock} en stock | ${this._prix}€)`;
+  }
+
+  add1() {
+    return `${this._qtestock++}`;
+  }
+
+  delete1() {
+    return `${this._qtestock--}`;
   }
 }
