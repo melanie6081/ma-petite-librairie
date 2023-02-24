@@ -1,6 +1,7 @@
 // Un livre
 export default class Livre {
-  constructor(titre, qtestock, prix) {
+  constructor(id, titre, qtestock, prix) {
+    this._id = id;
     this._titre = titre;
     this._qtestock = qtestock;
     this._prix = prix;

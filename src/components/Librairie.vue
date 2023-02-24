@@ -29,25 +29,26 @@ function getLivres() {
       console.log(dataJSON);
       listeC.splice(0, listeC.length);
       dataJSON.forEach((l) =>
-        listeC.push(new Livre(l.titre, l.qtestock, l.prix))
+        listeC.push(new Livre(l.id, l.titre, l.qtestock, l.prix))
       );
     })
     .catch((error) => console.log(error));
 }
 
-function handlerDelete(id) {
-  console.log("supprimons le livre d'id : ", id);
+function handlerDelete(livre) {
+  console.log(livre);
+  console.log("supprimons le livre d'id : ", livre._id);
   const fetchOptions = {
     method: "DELETE",
   };
 
-  fetch(url + "/" + id, fetchOptions)
+  fetch(url + "/" + livre._id, fetchOptions)
     .then((response) => {
       return response.json();
     })
     .then((dataJSON) => {
       console.log(dataJSON);
-      console.log("livre supprimé ?");
+      console.log("livre supprimé");
       getLivres();
     })
     .catch((error) => console.log(error));

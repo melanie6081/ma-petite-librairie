@@ -1,6 +1,6 @@
 <script setup>
 // -- il faut déclarer les 2 params (props) du composant
-defineProps(["livre", "indexl"]);
+defineProps(["livre"]);
 // -- les 3 events émis par ce composant
 defineEmits(["delete", "add1", "delete1"]);
 
@@ -17,7 +17,7 @@ defineEmits(["delete", "add1", "delete1"]);
          la fonction qui gèrera cet event aura en paramètre la valeur de index
     -->
     <br />
-    <button @click="$emit('delete', indexl)" id="suppr">Supprimer</button>
+    <button @click="$emit('delete', livre)" id="suppr">Supprimer</button>
     <button @click="$emit('delete1', livre)" id="suppr1">-</button>
     <button @click="$emit('add1', livre)" id="ajout1">+</button>
   </li>
