@@ -49,4 +49,10 @@ function chercherLivre(titreL) {
   <p id="resultat"></p>
 </template>
 
-<style scoped></style>
+<style scoped>
+h2 {
+  color: #40639d;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-style: italic;
+}
+</style>
